@@ -41,6 +41,10 @@ This is the model loading example. It uses client3.js, style2.css, and scripts f
 - If you are remixing with glitch, assets can be added in the "assets" section, if you are remixing using a local environment, you can add assets to subfolder with "public".
 - To host this online, you will need to use somrthing other than GitHub Pages as Github Pages only supports static webpages. 
 
-## Adapted and Expanded from Fog Creek
+## Adapted and Expanded From:
 
-\ ゜ o ゜)ノ
+This project: https://glitch.com/~threejs 
+
+and
+
+The examples found here: https://threejs.org/
