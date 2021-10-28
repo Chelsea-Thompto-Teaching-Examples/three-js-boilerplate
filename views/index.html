@@ -1,5 +1,5 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
+<!-- This the home/landing page
+Unlike the other pages, this page uses an extrenally hosted (CDN) verison of three.js -->
 
 <!DOCTYPE html>
 <html>
@@ -10,37 +10,42 @@
     <title>Art 109 Three.js Boilerplate</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <!-- Loading Three.js script-->
+    <!-- Loading three.js scource-->
     <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
   </head>
   <body>
-    <!-- Your web-app is https, so your scripts need to be too -->
     <h1>Art 109 Three.js Boilerplate</h1>
     <h2>
       Overview
     </h2>
     <p>
-      This is an example of a basic three.js scene using an externally hosted
-      verison of three.js. View the code at:<br />
+      This is an example of a basic
+      <a href="https://threejs.org/">three.js</a> scene using an externally
+      hosted verison of three.js. View the code at:<br />
     </p>
     <p class="mid">
       <a href="https://glitch.com/edit/#!/threejs-art109">This Link</a>
     </p>
     <br />
-    <!--Loading scene script.-->
+    <!--Loading scene script which will place scene here on the page display.-->
     <script src="/client.js"></script>
     <p>
       <br />
-      To add models, textures, and additional three.js scripts, you will need to
-      add them to your site. In the case of this example, I would add scripts to
-      the "public" folder and models/texures to the assets section.
+      To add models, textures, and additional three.js features, you will need
+      to add them to your site. In the case of this example, I would add scripts
+      to the "public" folder and models/texures to the assets section.
       <br /><br />
-      Here is an example of how to load a 3D model using server side hosted
+      Here are other three.js examples which use an internally hosted verison of
       three.js.<br />
     </p>
     <p class="mid">
       <a href="https://threejs-art109.glitch.me/gltf.html"
-        >GLTF Model Example</a
+        >GLTF Model and Orbit Controls Example</a
+      >
+    </p>
+    <p class="mid">
+      <a href="https://threejs-art109.glitch.me/move.html"
+        >WASD Pointer Lock Controls Example</a
       >
     </p>
   </body>
