@@ -1,7 +1,8 @@
-// client-side js
-// run by the browser each time your view template is loaded
+// Art 109 Three.js Demo Site
+// client.js
+// A basic three.js scene which displays and rotates a polygon with a wireframe
 
-// Extract globals, otherwise linting gets angry
+// Extract globals from extrenal script
 const { THREE } = window;
 
 // Create a scene
@@ -15,26 +16,21 @@ const camera = new THREE.PerspectiveCamera(
 const renderer = new THREE.WebGLRenderer();
 renderer.setClearColor(0xdfdfdf);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 document.body.appendChild(renderer.domElement);
 
 // Add a polygon to the scene
 const geometry = new THREE.IcosahedronGeometry(1, 0);
-const material = new THREE.MeshStandardMaterial({ color: 0x2E8E99});
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-// Add Torus
-//const geometry2 = new THREE.TorusGeometry( 1, .4, 16, 100 );
-//const material2 = new THREE.MeshBasicMaterial( { color: 0xfdff02 } );
-//const torus = new THREE.Mesh( geometry2, material2 );
-//scene.add( torus );
+const material = new THREE.MeshStandardMaterial({ color: 0x2e8e39 });
+const poly = new THREE.Mesh(geometry, material);
+scene.add(poly);
 
 // add wireframe to shape
-const wireframe = new THREE.WireframeGeometry( geometry );
-const line = new THREE.LineSegments( wireframe );
+const matLineBasic = new THREE.LineBasicMaterial({ color: 0x2e8e99 });
+const wireframe = new THREE.WireframeGeometry(geometry);
+const line = new THREE.LineSegments(wireframe, matLineBasic);
 line.material.depthTest = false;
-line.material.opacity = 0.8;
+line.material.opacity = 0.9;
 line.material.transparent = false;
 scene.add(line);
 
@@ -46,28 +42,27 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 scene.add(directionalLight);
 
 // Add an ambient light to the scene
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.95);
 scene.add(ambientLight);
 
-// Start the render loop
+// Define and then call the render loop
+// Define
 function render() {
   requestAnimationFrame(render);
 
   // Rotate our shape
-  cube.rotation.x += 0.02;
-  cube.rotation.y += 0.02;
-  line.rotation.x += 0.02;
-  line.rotation.y += 0.02;
-  //camera.rotation.z += .1;
-  //torus.rotation.x += 0.01;
-  
-
+  poly.rotation.x += 0.005;
+  poly.rotation.y += 0.005;
+  line.rotation.x += 0.005;
+  line.rotation.y += 0.005;
   renderer.render(scene, camera);
 }
+// Call
 render();
 
+// Handle Window Resizing
 function onWindowResize() {
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
   render();
 }

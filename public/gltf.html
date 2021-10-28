@@ -1,6 +1,4 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
+<!-- -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +6,7 @@
     <title>Art 109 Three.js GLTF Model</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <!--Loading GLTF example script-->
+    <!--Loading GLTF example script, as a module script, it will call all the other required sources from the script.-->
     <script src="/client2.js" type="module"></script>
   </head>
   <body>
@@ -30,13 +28,13 @@
         >This Link</a
       ><br /><br />
     </p>
-
+    <!--client2.js selects the div with an id of "space" and places the scene within it.-->
     <div id="space"></div>
 
     <p>
       <br />
       To add models and textures you will need to add them to your site. In the
-      case of this example, I added the model to the assests section of glitch.
+      case of this example, I added the model to the assests section of Glitch.
       For the scripts, I added them to the public folder of my server.
       <br />
     </p>
